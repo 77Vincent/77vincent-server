@@ -8,6 +8,7 @@ const API_POSTS = 'https://api.github.com/repos/77Vincent/blog/issues'
 const QUERY_LIMITS = 15
 
 const app = express()
+let bufferPosts = fs.readFileSync('./data/posts.json')
 
 const fetchData = () => {
   fetch(API_POSTS)
@@ -16,6 +17,7 @@ const fetchData = () => {
     })
     .then((data) => {
       fs.writeFileSync('./data/posts.json', JSON.stringify(data))
+      bufferPosts = Buffer.from(data)
       console.log('Data is sync')
     })
     .catch(err => console.error(err))
@@ -23,12 +25,12 @@ const fetchData = () => {
 
 setInterval(() => {
   fetchData()
-}, 1000 * 60 * 10)
+}, 1000 * 60 * 15)
 
 app.get('/api/posts', (req, res) => {
   const page = req.query.page || 1
 
-  let posts = JSON.parse(fs.readFileSync('./data/posts.json')).map(post => ({
+  let posts = JSON.parse(bufferPosts.toString()).map(post => ({
     id: post.id,
     comments: post.comments,
     updated_at: post.updated_at,
@@ -48,7 +50,7 @@ app.get('/api/posts', (req, res) => {
 })
 
 app.get('/api/posts/:id', (req, res) => {
-  const post = JSON.parse(fs.readFileSync('./data/posts.json')).filter(item => String(item.id) === req.params.id)[0]
+  const post = JSON.parse(bufferPosts.toString()).filter(item => String(item.id) === req.params.id)[0]
   res.json(post)
 })
 
