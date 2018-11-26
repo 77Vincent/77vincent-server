@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/77Vincent/77vincent-server#readme",
   "dependencies": {
+    "cross-fetch": "^2.2.3",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
