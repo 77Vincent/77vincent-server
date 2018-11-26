@@ -1,5 +1,6 @@
 const fetch = require('cross-fetch')
 const express = require('express')
+const cors = require('cors')
 const fs = require('fs')
 
 const port = 3001
@@ -26,6 +27,8 @@ const fetchData = () => {
 setInterval(() => {
   fetchData()
 }, 1000 * 60 * 15)
+
+app.use(cors())
 
 app.get('/api/posts', (req, res) => {
   const page = req.query.page || 1
