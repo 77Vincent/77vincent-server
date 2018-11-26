@@ -15,7 +15,7 @@ const fetchData = () => {
     })
     .then((data) => {
       fs.writeFileSync('./data/posts.json', JSON.stringify(data))
-      console.warn('Data is sync')
+      console.log('Data is sync')
     })
     .catch(err => console.error(err))
 }
@@ -41,4 +41,9 @@ app.get('/api/posts/:id', (req, res) => {
   res.json(post)
 })
 
-app.listen(port, () => console.warn(`Example app listening on port ${port}!`))
+app.get('/api/about', (req, res) => {
+  const data = fs.readFileSync('./data/about.md', 'utf8')
+  res.send(data)
+})
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))

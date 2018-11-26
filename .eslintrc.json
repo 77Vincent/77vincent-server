@@ -15,9 +15,7 @@
             "object": true
         }],
         "no-await-in-loop": "off",
-        "no-console": ["error", {
-            "allow": ["warn", "error"]
-        }],
+        "no-console": "off",
         "max-len": ["error", {
             "code": 120 
         }]
