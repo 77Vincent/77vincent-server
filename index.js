@@ -13,12 +13,11 @@ let bufferPosts = fs.readFileSync('./data/posts.json')
 
 const fetchData = () => {
   fetch(API_POSTS)
-    .then((respond) => {
-      respond.json()
-    })
+    .then(res => res.json())
     .then((data) => {
-      fs.writeFileSync('./data/posts.json', JSON.stringify(data))
-      bufferPosts = Buffer.from(data)
+      const dataStr = JSON.stringify(data)
+      bufferPosts = Buffer.from(dataStr)
+      fs.writeFileSync('./data/posts.json', dataStr)
       console.log('Data is sync')
     })
     .catch(err => console.error(err))
