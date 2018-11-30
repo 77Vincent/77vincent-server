@@ -1,5 +1,6 @@
 const fetch = require('cross-fetch')
 const express = require('express')
+const cors = require('cors')
 const fs = require('fs')
 
 const { API_POSTS, PORT } = require('./consts')
@@ -11,12 +12,11 @@ const app = express()
 
 const fetchData = () => {
   fetch(API_POSTS)
-    .then((respond) => {
-      respond.json()
-    })
+    .then(res => res.json())
     .then((data) => {
-      fs.writeFileSync('./data/posts.json', JSON.stringify(data))
-      store.bufferPosts = Buffer.from(data)
+      const dataStr = JSON.stringify(data)
+      store.bufferPosts = Buffer.from(dataStr)
+      fs.writeFileSync('./data/posts.json', dataStr)
       console.log('Data is sync')
     })
     .catch(err => console.error(err))
@@ -25,6 +25,8 @@ const fetchData = () => {
 setInterval(() => {
   fetchData()
 }, 1000 * 60 * 15)
+
+app.use(cors())
 
 app.get('/api/posts', routePosts)
 app.get('/api/posts/:id', routePost)
