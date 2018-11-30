@@ -9,4 +9,4 @@ block content
       .App-text-1=post.title
       .App-text-5=post.updated_at
 
-    .App-markdown=post.body
+    :markdown-it(linkify langPrefix='highlight-')

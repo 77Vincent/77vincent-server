@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const { PORT } = require('./consts')
 const store = require('./store')
+const { initialNavigation } = require('./store')
 const { fetchData, getPosts, generateAnchors } = require('./services')
 
 const app = express()
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
   const page = req.query.page || 1
   const { type, search } = req.query
   store.posts = getPosts(page, type, search)
+  store.navigation = initialNavigation
 
   res.render('index', store)
 })

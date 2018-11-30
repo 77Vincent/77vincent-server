@@ -15,4 +15,7 @@ const store = {
   navigation: initialNavigation,
 }
 
+
 module.exports = store
+
+module.exports.initialNavigation = initialNavigation
