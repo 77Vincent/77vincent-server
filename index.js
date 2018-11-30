@@ -5,7 +5,6 @@ const cors = require('cors')
 const { PORT } = require('./consts')
 const store = require('./store')
 const { fetchData, getPosts } = require('./services')
-const { routePost, routePosts, routeAbout } = require('./routes')
 
 const app = express()
 
@@ -28,10 +27,10 @@ app.get('/', (req, res) => {
   res.render('index', store)
 })
 
-// RESTful api
-app.get('/api/posts', routePosts)
-app.get('/api/posts/:id', routePost)
-app.get('/api/about', routeAbout)
+app.get('/posts/:id', (req, res) => {
+  store.post = JSON.parse(store.bufferPosts.toString()).filter(item => String(item.id) === req.params.id)[0]
+  res.render('Post', store)
+})
 
 setInterval(() => {
   fetchData()

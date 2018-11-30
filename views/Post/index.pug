@@ -1,0 +1,12 @@
+extends ../Layout/index
+
+block content
+  style
+    include index.css
+
+  .App-post
+    hgroup
+      .App-text-1=post.title
+      .App-text-5=post.updated_at
+
+    .App-markdown=post.body
