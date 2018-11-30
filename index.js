@@ -4,7 +4,7 @@ const cors = require('cors')
 
 const { PORT } = require('./consts')
 const store = require('./store')
-const { fetchData, getPosts } = require('./services')
+const { fetchData, getPosts, generateAnchors } = require('./services')
 
 const app = express()
 
@@ -29,6 +29,8 @@ app.get('/', (req, res) => {
 
 app.get('/posts/:id', (req, res) => {
   store.post = JSON.parse(store.bufferPosts.toString()).filter(item => String(item.id) === req.params.id)[0]
+  store.navigation = generateAnchors(store.post.body)
+
   res.render('Post', store)
 })
 

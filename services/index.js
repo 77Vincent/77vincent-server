@@ -6,6 +6,21 @@ const store = require('../store')
 
 const rawPosts = JSON.parse(store.bufferPosts.toString())
 
+function generateAnchors(post) {
+  const matches = post.match(/##.*/g) || []
+
+  return matches.map((item) => {
+    if (item.indexOf('name=') !== -1) {
+      const rawLink = item.split('=')[1].split('><')[0]
+      return {
+        title: item.split('a>')[1],
+        link: `#${rawLink.slice(1, rawLink.length - 1)}`,
+      }
+    }
+    return { title: null, link: '' }
+  })
+}
+
 function fetchData() {
   fetch(API_POSTS)
     .then(res => res.json())
@@ -40,4 +55,4 @@ function getPosts(page, type, search) {
   return posts
 }
 
-module.exports = { fetchData, getPosts }
+module.exports = { fetchData, getPosts, generateAnchors }
