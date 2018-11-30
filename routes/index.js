@@ -3,10 +3,13 @@ const fs = require('fs')
 const store = require('../store')
 const { QUERY_LIMITS } = require('../consts')
 
+const rawPosts = JSON.parse(store.bufferPosts.toString())
+
 function routePosts(req, res) {
   const page = req.query.page || 1
+  const { type, search } = req.query
 
-  let posts = JSON.parse(store.bufferPosts.toString()).map(post => ({
+  let posts = rawPosts.map(post => ({
     id: post.id,
     comments: post.comments,
     updated_at: post.updated_at,
@@ -17,10 +20,13 @@ function routePosts(req, res) {
       name: label.name,
     })),
   }))
-  posts = posts
-    .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
-    .filter(post => (req.query.type ? post.labels[0].name.toLowerCase() === req.query.type : true))
-    .slice(QUERY_LIMITS * (page - 1), QUERY_LIMITS * page)
+  posts = search
+    ? rawPosts
+      .filter(post => post.body.indexOf(search) !== -1 || post.title.indexOf(search) !== -1)
+    : posts
+      .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+      .filter(post => (type ? post.labels[0].name.toLowerCase() === type : true))
+      .slice(QUERY_LIMITS * (page - 1), QUERY_LIMITS * page)
 
   res.json(posts)
 }
