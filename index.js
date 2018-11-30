@@ -3,7 +3,8 @@ const rateLimit = require('express-rate-limit')
 const cors = require('cors')
 
 const { PORT } = require('./consts')
-const { fetchData } = require('./services')
+const store = require('./store')
+const { fetchData, getPosts } = require('./services')
 const { routePost, routePosts, routeAbout } = require('./routes')
 
 const app = express()
@@ -16,6 +17,18 @@ app.use(rateLimit({
   max: 150,
 }))
 
+app.set('views', './views')
+app.set('view engine', 'pug')
+
+app.get('/', (req, res) => {
+  const page = req.query.page || 1
+  const { type, search } = req.query
+  store.posts = getPosts(page, type, search)
+
+  res.render('index', store)
+})
+
+// RESTful api
 app.get('/api/posts', routePosts)
 app.get('/api/posts/:id', routePost)
 app.get('/api/about', routeAbout)

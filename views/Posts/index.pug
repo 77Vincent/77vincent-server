@@ -1,0 +1,9 @@
+style
+  include index.css
+.App-posts
+  each post in posts
+    a.App-posts-item(href=`posts/${post.id}`)
+      .App-text-2=post.title
+      .App-text-5=post.updated_at
+      each label in post.labels
+        .App-label(style={ "background-color": `#${label.color}` })=label.name

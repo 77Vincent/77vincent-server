@@ -1,0 +1,28 @@
+.App-posts .App-text-5 {
+  display: inline-block;
+  margin-right: 1em;
+} 
+
+.App-posts .App-text-2 {
+  display: block;
+}
+
+.App-posts-item {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.App-posts-item:last-child {
+  border-bottom: none;
+}
+
+.App-posts-item .App-label {
+  float: right;
+}
+
+.App-posts-item:hover .App-text-2 {
+  color: teal;
+  text-decoration: underline;
+}

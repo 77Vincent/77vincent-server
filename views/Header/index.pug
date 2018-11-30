@@ -1,0 +1,10 @@
+style
+  include index.css
+.App-header
+  a.App-header-logo(href="/")
+    .App-header-logo-en Tianqi's blog
+    .App-header-logo-cn 天启的博客
+
+    each item in navigation
+      a.App-header-link(href=item.link)=item.title 
+  
