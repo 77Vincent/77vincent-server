@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "server": "pm2 start index.js --watch",
+    "server": "PORT=80 pm2 start index.js --watch",
     "lint": "eslint ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
