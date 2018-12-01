@@ -1,10 +1,15 @@
 const fetch = require('cross-fetch')
+const moment = require('moment')
 const fs = require('fs')
 
 const { API_POSTS, QUERY_LIMITS } = require('../consts')
 const store = require('../store')
 
 const rawPosts = JSON.parse(store.bufferPosts.toString())
+
+function formatDate(date) {
+  return moment(date).format('D/MM/YYYY')
+}
 
 function generateAnchors(post) {
   const matches = post.match(/##.*/g) || []
@@ -37,7 +42,7 @@ function getPosts(page, type, search) {
   let posts = rawPosts.map(post => ({
     id: post.id,
     comments: post.comments,
-    updated_at: post.updated_at,
+    updated_at: formatDate(post.updated_at),
     title: post.title,
     labels: post.labels.map(label => ({
       id: label.id,
@@ -55,4 +60,9 @@ function getPosts(page, type, search) {
   return posts
 }
 
-module.exports = { fetchData, getPosts, generateAnchors }
+module.exports = {
+  fetchData,
+  getPosts,
+  generateAnchors,
+  formatDate,
+}
