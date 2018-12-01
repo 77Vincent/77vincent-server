@@ -9,4 +9,11 @@ block content
       .App-text-1=post.title
       .App-text-5=post.updated_at
 
-    :markdown-it(linkify langPrefix='highlight-')
+    .App-markdown=post.body
+
+  script.
+    const md = document.getElementsByClassName('App-markdown')[0]
+
+    const converter = new showdown.Converter()
+
+    md.innerHTML = converter.makeHtml(md.childNodes[0].nodeValue)
