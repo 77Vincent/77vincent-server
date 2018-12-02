@@ -38,7 +38,9 @@ function fetchData() {
     .catch(err => console.error(err))
 }
 
-function getPosts(page, type, search) {
+function getPosts(page = 1, type, search) {
+  const searchContent = search && search.toLowerCase()
+
   let posts = rawPosts.map(post => ({
     id: post.id,
     comments: post.comments,
@@ -50,9 +52,15 @@ function getPosts(page, type, search) {
       name: label.name,
     })),
   }))
-  posts = search
+
+  posts = searchContent
     ? rawPosts
-      .filter(post => post.body.indexOf(search) !== -1 || post.title.indexOf(search) !== -1)
+      .filter(post => post.body
+        .toLowerCase()
+        .indexOf(searchContent) !== -1
+        || post.title
+          .toLowerCase()
+          .indexOf(searchContent) !== -1)
     : posts
       .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
       .filter(post => (type ? post.labels[0].name.toLowerCase() === type : true))

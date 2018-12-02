@@ -34,6 +34,14 @@ app.get('/', (req, res) => {
   res.render('index', store)
 })
 
+app.get('/search', (req, res) => {
+  store.posts = getPosts(1, null, req.query.content)
+  console.log(11111, req.query.content)
+  store.navigation = initialNavigation
+
+  res.render('index', store)
+})
+
 app.get('/posts/:id', (req, res) => {
   store.post = JSON.parse(store.bufferPosts.toString()).filter(item => String(item.id) === req.params.id)[0]
   store.post.updated_at = formatDate(store.post.updated_at)

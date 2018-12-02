@@ -7,6 +7,50 @@
   display: block;
 }
 
+.App-posts-search {
+  margin-bottom: 1.5em;
+  position: relative;
+}
+
+#App-posts-search-input {
+  width: 100%;
+  text-indent: 0.6em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  padding: 3px 0;
+  height: 32px;
+}
+
+#App-posts-search-input:focus {
+  box-shadow: 0 1px 5px 0 #ccc;
+}
+
+#App-posts-search-go {
+  border: none;
+  height: 32px;
+  width: 64px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: teal;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  outline: none;
+  z-index: 1;
+  display: inline-block;
+  line-height: 32px;
+}
+
+#App-posts-search-go:hover {
+  background-color: #333;
+}
+
 .App-posts-item {
   display: block;
   border-bottom: 1px solid #ddd;

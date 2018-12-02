@@ -2,9 +2,31 @@ style
   include index.css
 
 .App-posts
+  .App-posts-search
+    input#App-posts-search-input(placeholder="Search / 搜索")
+    button#App-posts-search-go GO
+
   each post in posts
     a.App-posts-item(href=`posts/${post.id}`)
       .App-text-2=post.title
       .App-text-5=post.updated_at
       each label in post.labels
         .App-label(style={ "background-color": `#${label.color}` })=label.name
+
+script.
+  var input = document.getElementById('App-posts-search-input')
+  var go = document.getElementById('App-posts-search-go')
+
+  input.onkeyup = function(e) {
+    e.preventDefault() 
+    if (event.keyCode === 13) {
+      go.click()
+    }
+  }
+
+  go.onclick = function(e) {
+    var value = input.value
+    if (value.length) {
+      location.href = 'search' + '?content=' + value
+    }
+  }
