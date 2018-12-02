@@ -1,5 +1,5 @@
 const API_POSTS = 'https://api.github.com/repos/77Vincent/blog/issues'
-const QUERY_LIMITS = 15
+const QUERY_LIMITS = 20
 const PORT = process.env.PORT || 3000
 
 module.exports = {
