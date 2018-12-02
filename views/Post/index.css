@@ -28,5 +28,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  font-size: 1.05em;
+  .App-markdown {
+    font-size: 1.15em;
+  }
 }
