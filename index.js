@@ -42,6 +42,10 @@ app.get('/posts/:id', (req, res) => {
   res.render('Post', store)
 })
 
+app.get('*', (req, res) => {
+  res.render('404', store)
+})
+
 setInterval(() => {
   fetchData()
 }, 10 * 60 * 1000)

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+    "sync": "node scripts/index.js",
     "server": "PORT=80 pm2 start index.js --watch",
     "lint": "eslint ./",
     "test": "echo \"Error: no test specified\" && exit 1"
