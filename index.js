@@ -2,6 +2,7 @@ const express = require('express')
 const rateLimit = require('express-rate-limit')
 const cors = require('cors')
 const favicon = require('serve-favicon')
+const path = require('path')
 
 const { PORT } = require('./consts')
 const { fetchData } = require('./services')
@@ -9,7 +10,7 @@ const routes = require('./routes')
 
 const app = express()
 
-app.use(favicon('./favicon.ico'))
+app.use(favicon(path.join(__dirname, 'favicon.ico')))
 app.enable('trust proxy')
 
 app.use(cors())
