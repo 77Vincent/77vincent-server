@@ -44,6 +44,6 @@ app.get('/posts/:id', (req, res) => {
 
 setInterval(() => {
   fetchData()
-}, 15 * 60 * 1000)
+}, 10 * 60 * 1000)
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
