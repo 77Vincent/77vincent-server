@@ -22,8 +22,8 @@ script.
   var input = document.getElementById('App-posts-search-input')
   var go = document.getElementById('App-posts-search-go')
 
-  var searchContent = location.href.split('search?content=')[1]
-  input.value = searchContent || null
+  var searchContent = location.href.split('search?content=')[1] || ''
+  input.value = decodeURIComponent(searchContent)
 
   input.onkeyup = function(e) {
     e.preventDefault() 

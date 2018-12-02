@@ -11,7 +11,7 @@ function formatDate(date) {
   return moment(date).format('D/MM/YYYY')
 }
 
-function generateAnchors(post) {
+function generateAnchors(post = '') {
   const matches = post.match(/##.*/g) || []
 
   return matches.map((item) => {
