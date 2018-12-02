@@ -6,6 +6,11 @@ style
     input#App-posts-search-input(placeholder="Search / 搜索")
     button#App-posts-search-go GO
 
+  if !posts.length
+    .App-posts-not-found
+      h5 Not Post is found
+      h6 没有找到你想要的文章哦
+
   each post in posts
     a.App-posts-item(href=`posts/${post.id}`)
       .App-text-2=post.title
@@ -16,6 +21,9 @@ style
 script.
   var input = document.getElementById('App-posts-search-input')
   var go = document.getElementById('App-posts-search-go')
+
+  var searchContent = location.href.split('search?content=')[1]
+  input.value = searchContent || null
 
   input.onkeyup = function(e) {
     e.preventDefault() 

@@ -70,3 +70,7 @@
   color: teal;
   text-decoration: underline;
 }
+
+.App-posts-not-found {
+  opacity: 0.6;
+}

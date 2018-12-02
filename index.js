@@ -36,7 +36,6 @@ app.get('/', (req, res) => {
 
 app.get('/search', (req, res) => {
   store.posts = getPosts(1, null, req.query.content)
-  console.log(11111, req.query.content)
   store.navigation = initialNavigation
 
   res.render('index', store)
