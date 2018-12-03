@@ -28,6 +28,7 @@
 .App-markdown pre {
   margin-bottom: 1.5em !important;
   font-size: 0.8em;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 768px) {

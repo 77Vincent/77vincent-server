@@ -1,40 +1,43 @@
-style
-  include index.css
+extends ../Layout/index
 
-.App-posts
-  .App-posts-search
-    input#App-posts-search-input(placeholder="Search / 搜索")
-    button#App-posts-search-go GO
+block content
+  style
+    include index.css
 
-  if !posts.length
-    .App-posts-not-found
-      h5 Not Post is found
-      h6 没有找到你想要的文章哦
+  .App-posts
+    .App-posts-search
+      input#App-posts-search-input(placeholder="Search / 搜索")
+      button#App-posts-search-go GO
 
-  each post in posts
-    a.App-posts-item(href=`posts/${post.id}`)
-      .App-text-2=post.title
-      .App-text-5=post.updated_at
-      each label in post.labels
-        .App-label(style={ "background-color": `#${label.color}` })=label.name
+    if !posts.length
+      .App-posts-not-found
+        h5 Not Post is found
+        h6 没有找到你想要的文章哦
 
-script.
-  var input = document.getElementById('App-posts-search-input')
-  var go = document.getElementById('App-posts-search-go')
+    each post in posts
+      a.App-posts-item(href=`posts/${post.id}`)
+        .App-text-2=post.title
+        .App-text-5=post.updated_at
+        each label in post.labels
+          .App-label(style={ "background-color": `#${label.color}` })=label.name
 
-  var searchContent = location.href.split('search?content=')[1] || ''
-  input.value = decodeURIComponent(searchContent)
+  script.
+    var input = document.getElementById('App-posts-search-input')
+    var go = document.getElementById('App-posts-search-go')
 
-  input.onkeyup = function(e) {
-    e.preventDefault() 
-    if (event.keyCode === 13) {
-      go.click()
+    var searchContent = location.href.split('search?content=')[1] || ''
+    input.value = decodeURIComponent(searchContent)
+
+    input.onkeyup = function(e) {
+      e.preventDefault() 
+      if (event.keyCode === 13) {
+        go.click()
+      }
     }
-  }
 
-  go.onclick = function(e) {
-    var value = input.value
-    if (value.length) {
-      location.href = 'search' + '?content=' + value
+    go.onclick = function(e) {
+      var value = input.value
+      if (value.length) {
+        location.href = 'search' + '?content=' + value
+      }
     }
-  }

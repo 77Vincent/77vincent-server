@@ -1,0 +1,25 @@
+.App-welcome {
+  text-align: center;
+  opacity: 0.7;
+  margin: -21px -30px -45px -30px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.App-welcome-action {
+  text-decoration: underline;
+  color: teal;
+}
+
+.App-welcome-action:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .App-welcome {
+    margin: -21px -15px -45px -15px;
+  }
+}

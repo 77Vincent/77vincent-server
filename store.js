@@ -1,8 +1,9 @@
 const fs = require('fs')
+const wordsOfToday = require('./data/words')
 
 const initialNavigation = [{
   title: 'Posts / 博客',
-  link: '/',
+  link: '/posts',
 }, {
   title: 'About Me / 关于我',
   link: '/about',
@@ -13,6 +14,7 @@ const store = {
   posts: [],
   post: {},
   navigation: initialNavigation,
+  wordsOfToday,
 }
 
 

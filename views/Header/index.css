@@ -42,12 +42,12 @@
 @media screen and (max-width: 768px) {
   .App-header {
     width: 100%;
-    height: 57px;
+    height: 51px;
     padding: 5px;
   }
 
   .App-header-logo {
-    font-size: 1.2em;
+    font-size: 1em;
     border: none;
   }
 
