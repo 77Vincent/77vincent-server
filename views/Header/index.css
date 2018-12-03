@@ -10,6 +10,11 @@
   z-index: 9;
 }
 
+.App-header-links {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 .App-header-link {
   display: block;
   color: #fff;

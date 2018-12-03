@@ -10,6 +10,7 @@
 }
 
 .App-welcome-action {
+  margin-top: 1em;
   text-decoration: underline;
   color: teal;
 }
