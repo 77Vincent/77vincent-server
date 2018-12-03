@@ -78,11 +78,17 @@ Start from App specific rules
 
 @media screen and (max-width: 768px) {
   .App-layout {
-    top: 60px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 69px 15px 30px 15px;
     border-right: none;
     margin-right: 0;
     font-size: 0.95em;
+  }
+
+  .App-label {
+    font-size: 9px;
+  }
+
+  .App-text-2 {
+    font-size: 1.2em;
   }
 }
