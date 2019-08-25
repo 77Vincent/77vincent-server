@@ -12,17 +12,12 @@ function formatDate(date) {
 }
 
 function generateAnchors(post = '') {
-  const matches = post.match(/##.*/g) || []
+  const matches = post.match(/^#{2}\s.*/gm) || []
 
-  return matches.map((item) => {
-    if (item.indexOf('name=') !== -1) {
-      const rawLink = item.split('=')[1].split('><')[0]
-      return {
-        title: item.split('a>')[1],
-        link: `#${rawLink.slice(1, rawLink.length - 1)}`,
-      }
-    }
-    return { title: null, link: '' }
+  return matches.map((match) => {
+    const title = match.replace('## ', '')
+    const link = `#${title.toLowerCase().split(' ').join('-')}`
+    return { title, link }
   })
 }
 
