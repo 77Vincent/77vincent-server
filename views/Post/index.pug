@@ -7,7 +7,9 @@ block content
   .App-post
     hgroup
       .App-text-1=post.title
-      .App-text-5=post.updated_at
+      .App-text-5='Updated at ' + post.updated_at
+      each label in post.labels
+        .App-label(style={ "background-color": `#${label.color}` })=label.name
 
     .App-markdown=post.body
 
