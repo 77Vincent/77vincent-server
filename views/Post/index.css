@@ -9,11 +9,10 @@
 }
 
 .App-markdown {
-  font-size: 1.1em;
 }
 
 .App-markdown p {
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
 .App-markdown h2 {
@@ -22,12 +21,16 @@
   margin: 1.5em 0 1.2em;
   font-size: 1.5em;
   color: #444;
+}
+
+.App-markdown h3 {
+  font-size: 1em;
   font-weight: bold;
 }
 
 .App-markdown pre {
   margin-bottom: 1.5em !important;
-  font-size: 0.8em;
+  font-size: 0.75em;
   border-radius: 5px;
 }
 

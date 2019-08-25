@@ -29,13 +29,16 @@ app.get('/search', (req, res) => {
 
 app.get('/posts/:id', (req, res) => {
   store.post = JSON.parse(store.bufferPosts.toString()).filter(item => String(item.id) === req.params.id)[0]
+  if (!store.post) {
+    return res.render('404', store)
+  }
   store.post.updated_at = formatDate(store.post.updated_at)
   store.navigation = generateAnchors(store.post.body).concat([{
     title: 'Back / 返回',
     link: '/posts',
   }])
 
-  res.render('Post', store)
+  return res.render('Post', store)
 })
 
 app.get('/about', (req, res) => {

@@ -16,8 +16,9 @@ app.enable('trust proxy')
 app.use(cors())
 app.use(rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 150,
+  max: 300,
 }))
+app.use(express.static('static'))
 app.use(routes)
 
 app.set('views', './views')

@@ -6,7 +6,7 @@ body {
 
 p {
   line-height: 1.5;
-  margin-bottom: 2em;
+  margin-top: 2em;
 }
 
 ul,
@@ -58,22 +58,23 @@ Start from App specific rules
   margin: 0.6em 0 0.9em;
 }
 .App-text-2 {
-  font-size: 1.3em;
+  font-size: 1.15em;
   margin: 0.3em 0;
+  color: #222;
 }
 .App-text-5 {
   font-size: 12px;
   letter-spacing: 1px;
-  opacity: 0.45;
+  color: #bbb;
 }
 
 .App-label {
   display: inline-block;
-  padding: 3px 6px;
+  padding: 2px 5px;
   border-radius: 3px;
   color: #444;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 @media screen and (max-width: 768px) {
