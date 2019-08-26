@@ -16,7 +16,7 @@ function generateAnchors(post = '') {
 
   return matches.map((match) => {
     const title = match.replace('## ', '')
-    const link = `#${title.toLowerCase().split(' ').join('-')}`
+    const link = `#${title.match(/\w/g).join('').toLowerCase()}`
     return { title, link }
   })
 }
