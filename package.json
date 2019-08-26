@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run-dev": "nodemon index.js",
+    "run-dev": "pm2 start ecosystem.config.js",
     "run-production": "pm2 start ecosystem.config.js --env production",
     "sync": "node scripts/index.js",
     "lint": "eslint ./",

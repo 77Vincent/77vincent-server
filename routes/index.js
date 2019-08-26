@@ -1,7 +1,7 @@
 const express = require('express')
 
-const store = require('../store')
-const { initialNavigation } = require('../store')
+const store = require('../src/store')
+const { initialNavigation } = require('../src/store')
 const { getPosts, generateAnchors, formatDate } = require('../services')
 
 const app = express()
@@ -19,11 +19,12 @@ app.get('/search', (req, res) => {
   store.posts = getPosts(1, null, req.query.content)
   store.navigation = initialNavigation
 
-  res.render('Posts', store)
+  return res.render('Posts', store)
 })
 
 app.get('/write', (req, res) => {
-  res.render('Write', store)
+  console.log(1)
+  return res.render('Write', store)
 })
 
 app.get('/write/:id', (req, res) => {
@@ -32,7 +33,7 @@ app.get('/write/:id', (req, res) => {
     store.navigation = initialNavigation
     return res.render('404', store)
   }
-  res.render('Write', store)
+  return res.render('Write', store)
 })
 
 app.get('/posts/:id', (req, res) => {
@@ -52,7 +53,7 @@ app.get('/posts/:id', (req, res) => {
 
 app.get('*', (req, res) => {
   store.navigation = initialNavigation
-  res.render('404', store)
+  return res.render('404', store)
 })
 
 module.exports = app

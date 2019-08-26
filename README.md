@@ -1,3 +1,3 @@
 # 77vincent-server
 
-Backend code of my blog
+Source code of my blog

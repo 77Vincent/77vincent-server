@@ -30,11 +30,11 @@ block content
   script.
     const submit = document.getElementById('submitButton')
     const form = document.getElementById('issueForm')
+
     submit.onclick = function(e) {
       e.preventDefault()
       const payload = {
         title: form.title.value,
         body: form.body.value,
       }
-      
     }

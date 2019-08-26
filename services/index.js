@@ -2,8 +2,8 @@ const fetch = require('cross-fetch')
 const moment = require('moment')
 const fs = require('fs')
 
-const { API_POSTS, QUERY_LIMITS } = require('../consts')
-const store = require('../store')
+const { API_POSTS, QUERY_LIMITS } = require('../src/consts')
+const store = require('../src/store')
 
 const rawPosts = JSON.parse(store.bufferPosts.toString())
 
