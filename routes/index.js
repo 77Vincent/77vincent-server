@@ -31,7 +31,7 @@ app.get('/posts/:id', (req, res) => {
   store.post.updated_at = formatDate(store.post.updated_at)
   store.navigation = generateAnchors(store.post.body).concat([{
     title: 'Back / 返回',
-    link: '/posts',
+    link: '/',
   }])
 
   return res.render('Post', store)

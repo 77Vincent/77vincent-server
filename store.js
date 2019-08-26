@@ -3,7 +3,7 @@ const wordsOfToday = require('./data/words')
 
 const initialNavigation = [{
   title: 'Posts / 博客',
-  link: '/posts',
+  link: '/',
 }, {
   title: 'About Me / 关于我',
   link: '/about',
