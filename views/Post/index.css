@@ -1,11 +1,15 @@
 .App-post hgroup {
-  text-align: center;
   margin-bottom: 5em;
 }
 
 .App-post .App-text-1 {
   margin-top: 0;
   margin-bottom: 0.9em;
+}
+
+.App-post .App-text-5 {
+  display: inline-block;
+  margin-right: 6px;
 }
 
 .App-markdown {

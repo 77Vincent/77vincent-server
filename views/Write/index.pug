@@ -1,0 +1,40 @@
+extends ../Layout/index
+
+block content
+  script
+    include ../../node_modules/showdown/dist/showdown.js
+    include ../../node_modules/prismjs/prism.js
+  style
+    include index.css
+    include ../../node_modules/prismjs/themes/prism-tomorrow.css
+  .App-write
+    form#issueForm
+      input.App-text-1(
+        name='title'
+        value=post.title
+      )
+
+      each label in post.labels
+        .App-label(style={ "background-color": `#${label.color}` })=label.name
+
+      textarea.App-markdown(
+        name='body'
+        rows='20'
+      )=post.body
+
+      input#submitButton(
+        type='submit'
+        value='submit'
+      )
+
+  script.
+    const submit = document.getElementById('submitButton')
+    const form = document.getElementById('issueForm')
+    submit.onclick = function(e) {
+      e.preventDefault()
+      const payload = {
+        title: form.title.value,
+        body: form.body.value,
+      }
+      
+    }

@@ -22,6 +22,19 @@ app.get('/search', (req, res) => {
   res.render('Posts', store)
 })
 
+app.get('/write', (req, res) => {
+  res.render('Write', store)
+})
+
+app.get('/write/:id', (req, res) => {
+  store.post = JSON.parse(store.bufferPosts.toString()).filter(item => String(item.id) === req.params.id)[0]
+  if (!store.post) {
+    store.navigation = initialNavigation
+    return res.render('404', store)
+  }
+  res.render('Write', store)
+})
+
 app.get('/posts/:id', (req, res) => {
   store.post = JSON.parse(store.bufferPosts.toString()).filter(item => String(item.id) === req.params.id)[0]
   if (!store.post) {
