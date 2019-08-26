@@ -37,10 +37,6 @@ app.get('/posts/:id', (req, res) => {
   return res.render('Post', store)
 })
 
-app.get('/about', (req, res) => {
-  res.render('About', store)
-})
-
 app.get('*', (req, res) => {
   store.navigation = initialNavigation
   res.render('404', store)

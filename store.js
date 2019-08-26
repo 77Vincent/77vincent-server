@@ -1,19 +1,13 @@
 const fs = require('fs')
 const wordsOfToday = require('./data/words')
 
-const initialNavigation = [{
-  title: 'Posts / 博客',
-  link: '/',
-}, {
-  title: 'About Me / 关于我',
-  link: '/about',
-}]
+const initialNavigation = []
 
 const store = {
   bufferPosts: fs.readFileSync('./data/posts.json'),
   posts: [],
   post: {},
-  navigation: initialNavigation,
+  navigation: initialNavigation, 
   wordsOfToday,
 }
 
