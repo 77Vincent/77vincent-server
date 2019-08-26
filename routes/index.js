@@ -7,11 +7,6 @@ const { getPosts, generateAnchors, formatDate } = require('../services')
 const app = express()
 
 app.get('/', (req, res) => {
-  store.navigation = initialNavigation
-  res.render('Welcome', store)
-})
-
-app.get('/posts', (req, res) => {
   const page = req.query.page || 1
   const { type, search } = req.query
   store.posts = getPosts(page, type, search)
@@ -30,6 +25,7 @@ app.get('/search', (req, res) => {
 app.get('/posts/:id', (req, res) => {
   store.post = JSON.parse(store.bufferPosts.toString()).filter(item => String(item.id) === req.params.id)[0]
   if (!store.post) {
+    store.navigation = initialNavigation
     return res.render('404', store)
   }
   store.post.updated_at = formatDate(store.post.updated_at)
@@ -46,6 +42,7 @@ app.get('/about', (req, res) => {
 })
 
 app.get('*', (req, res) => {
+  store.navigation = initialNavigation
   res.render('404', store)
 })
 
