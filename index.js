@@ -1,4 +1,5 @@
 const express = require('express')
+const compression = require('compression')
 const rateLimit = require('express-rate-limit')
 const cors = require('cors')
 const favicon = require('serve-favicon')
@@ -11,6 +12,7 @@ const routes = require('./routes')
 const app = express()
 const MAX_AGE_STATIC = 24 * 60 * 60 * 1000
 
+app.use(compression())
 app.use(favicon(path.join(__dirname, 'favicon.ico')))
 app.enable('trust proxy')
 

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "run-dev": "nodemon index.js",
+    "run-production": "pm2 start ecosystem.config.js --env production",
     "sync": "node scripts/index.js",
-    "server": "pm2 start ecosystem.config.js --env production",
     "lint": "eslint ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/77Vincent/77vincent-server#readme",
   "dependencies": {
     "bootstrap": "^4.1.3",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "cross-fetch": "^2.2.3",
     "eslint": "^5.9.0",

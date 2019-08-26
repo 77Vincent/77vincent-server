@@ -1,8 +1,12 @@
 extends ../Layout/index
 
 block content
+  script
+    include ../../node_modules/showdown/dist/showdown.js
+    include ../../node_modules/prismjs/prism.js
   style
     include index.css
+    include ../../node_modules/prismjs/themes/prism-tomorrow.css
 
   .App-post
     hgroup
