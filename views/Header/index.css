@@ -1,20 +1,19 @@
 .App-header {
-  background-image: url(/images/concrete.jpg);
-  background-size: cover;
-  padding: 15px;
+  padding: 0 15px;
   width: 300px;
   position: fixed;
   left: 0;
-  top: 0;
-  height: 100%;
+  top: 2%;
+  border-right: 1px solid #ddd;
+  height: 96%;
   z-index: 9;
-  box-shadow: -3px 0 7px 0px #444;
 }
 
 .App-header-links {
   max-height: 80vh;
   overflow-y: auto;
   font-size: 14px;
+  opacity: 0.8;
 }
 
 .App-header-link {
@@ -26,17 +25,15 @@
 
 .App-header-link:hover {
   border-bottom: 1px solid #aaa;
-  color: #777;
 }
 
 .App-header-logo {
-  text-align: center;
   display: block;
   font-size: 1.2em;
   font-weight: 300;
   margin-bottom: 1em;
   padding-bottom: 10px;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #ddd;
 }
 
 .App-header-logo-cn {
