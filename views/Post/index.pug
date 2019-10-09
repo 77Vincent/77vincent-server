@@ -4,6 +4,7 @@ block content
   script
     include ../../node_modules/showdown/dist/showdown.js
     include ../../node_modules/prismjs/prism.js
+    include ../../node_modules/jquery/dist/jquery.min.js
   style
     include index.css
     include ../../node_modules/prismjs/themes/prism-tomorrow.css
@@ -23,3 +24,9 @@ block content
     const converter = new showdown.Converter()
 
     md.innerHTML = converter.makeHtml(md.childNodes[0].nodeValue)
+
+    const anchors = $('.App-header-link')
+    anchors.click(function() {
+      anchors.removeClass('active')
+      $(this).addClass('active')
+    })
