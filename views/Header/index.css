@@ -12,19 +12,25 @@
 .App-header-links {
   max-height: 80vh;
   overflow-y: auto;
-  font-size: 14px;
-  opacity: 0.8;
+  font-size: 13px;
 }
 
 .App-header-link {
   display: block;
-  padding: 0.5em 0.6em;
-  line-height: 1;
+  padding: 0.6em 0.6em;
+  line-height: 1.2;
   border-bottom: 1px solid transparent;
 }
 
+.App-header-link:last-child {
+  border-top: 1px solid #ddd;
+  margin-top: 1em;
+}
+
+.App-header-link.active,
 .App-header-link:hover {
-  border-bottom: 1px solid #aaa;
+  background-color: teal;
+  color: white;
 }
 
 .App-header-logo {

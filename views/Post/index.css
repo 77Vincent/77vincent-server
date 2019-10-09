@@ -13,27 +13,51 @@
   margin-right: 6px;
 }
 
-.App-markdown p {
+.App-markdown {
+}
+
+.App-markdown > p {
   line-height: 1.75;
+  color: #333;
 }
 
 .App-markdown h2 {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
   padding-bottom: 6px;
   margin: 1.5em 0 1.2em;
-  font-size: 1.6em;
+  font-size: 1.75em;
   font-weight: bold;
 }
 
 .App-markdown h3 {
-  font-size: 1em;
+  font-size: 1.2em;
+  margin: 1.5em 0 1em;
   font-weight: bold;
+  line-height: 1.5;
+}
+
+.App-markdown code {
+  background-color: teal;
+  color: white;
+  padding: 1px 3px;
+  border-radius: 3px;
 }
 
 .App-markdown pre {
   margin-bottom: 1.5em !important;
   font-size: 0.75em;
   border-radius: 5px;
+}
+
+.App-markdown blockquote {
+  border-left: 5px solid #aaa;
+  margin-left: 0;
+  padding-left: 1em;
+  color: #999;
+}
+
+.App-markdown blockquote p {
+  margin-top: 0.5em;
 }
 
 @media screen and (max-width: 768px) {
