@@ -16,7 +16,7 @@
 .App-markdown {
 }
 
-.App-markdown > p {
+.App-markdown p {
   line-height: 1.75;
   color: #333;
 }
@@ -45,7 +45,7 @@
 
 .App-markdown pre {
   margin-bottom: 1.5em !important;
-  font-size: 0.75em;
+  font-size: 0.7em;
   border-radius: 5px;
 }
 

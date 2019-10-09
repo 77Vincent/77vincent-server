@@ -1,6 +1,7 @@
 const express = require('express')
 
 const store = require('../src/store')
+const { LINK_BACK } = require('../src/consts')
 const { initialNavigation } = require('../src/store')
 const { getPosts, generateAnchors, formatDate } = require('../services')
 
@@ -43,10 +44,7 @@ app.get('/posts/:id', (req, res) => {
     return res.render('404', store)
   }
   store.post.updated_at = formatDate(store.post.updated_at)
-  store.navigation = generateAnchors(store.post.body).concat([{
-    title: 'Back / 返回',
-    link: '/',
-  }])
+  store.navigation = generateAnchors(store.post.body).concat([LINK_BACK])
 
   return res.render('Post', store)
 })

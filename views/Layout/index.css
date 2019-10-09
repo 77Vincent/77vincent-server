@@ -20,8 +20,9 @@ ol {
 }
 
 li {
-  line-height: 1.5;
-  padding: 2px 0;
+  line-height: 1.25;
+  padding: 9px 0;
+  list-style-position: inside;
 }
 
 a {
